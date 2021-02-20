@@ -94,3 +94,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46c4738ec23dd87448e17d319089b421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  location: {x: 0, y: 0}
+  hydration: 0
+  onFire: 0
+  sprites:
+  - sprite:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - sprite: []
+  - sprite: []
+  - sprite: []
+  - sprite: []
