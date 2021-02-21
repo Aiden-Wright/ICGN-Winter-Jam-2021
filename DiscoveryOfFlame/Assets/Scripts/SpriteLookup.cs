@@ -10,8 +10,7 @@ public class SpriteLookup : MonoBehaviour
         bush,
         grass,
         rocks,
-        riverH,
-        riverV
+        river
     }
     [System.Serializable]
     public struct TerrainTypeSprite

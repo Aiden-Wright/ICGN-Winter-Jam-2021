@@ -100,10 +100,6 @@ MonoBehaviour:
   onFire: 0
   sprites:
   - sprite:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-  - sprite: []
-  - sprite: []
-  - sprite: []
-  - sprite: []
+    - {fileID: 21300000, guid: 05bf0b85068514c4ba85a41b11530672, type: 3}
+    - {fileID: 21300000, guid: d66b5e6eb485f8146a68b647405f6344, type: 3}
+    - {fileID: 21300000, guid: c843f4370297af34781964c8622798c6, type: 3}
