@@ -7,6 +7,7 @@ public class TileManager : MonoBehaviour
     public GameObject TilePrefab;
     int chunkSize = 8;
     GameObject Tiles; //A folder for all tiles in the scene
+    //SortedDictionary<Vector2, Tile> grid = new SortedDictionary<Vector2, Tile>();
     private void Start()
     {
         Tiles = new GameObject("Tiles");
@@ -43,7 +44,10 @@ public class TileManager : MonoBehaviour
                 GameObject newTile = Instantiate(TilePrefab, Tiles.transform, true);
                 Tile chunkTile = newTile.GetComponent<Tile>();
                 newTile.transform.position = new Vector2(location.x + i, location.y + j);
+                //grid.Add(newTile.transform.position, chunkTile);
             }
         }
     }
+
+
 }

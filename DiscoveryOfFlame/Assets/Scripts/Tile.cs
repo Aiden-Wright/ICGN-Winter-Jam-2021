@@ -13,7 +13,8 @@ public class Tile : MonoBehaviour
     public SpriteLookup.TerrainTypeSprite[] sprites;
     GameObject foliage;
     SpriteRenderer foliageSpr;
-    bool instance;
+    public bool instance;
+    [SerializeField] ParticleSystem fire;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,10 +29,9 @@ public class Tile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (instance)
+        if(onFire)
         {
-            instance = false;
-            SetFolliageSprite();
+
         }
     }
 
@@ -39,6 +39,12 @@ public class Tile : MonoBehaviour
     {
         if (hydration <= 0)
             Destroy(foliage);
-        foliageSpr.sprite = sprites[(int)type].sprite[(int)(hydration * sprites[(int)type].sprite.Length)];
+        int enumNum = (int)type;
+        foliageSpr.sprite = sprites[enumNum].sprite[(int)(hydration * sprites[enumNum].sprite.Length)];
+        foliageSpr.sortingOrder = 1;
+    }
+    public void SetOnFire()
+    {
+        Instantiate<ParticleSystem>(fire, gameObject.transform);
     }
 }
