@@ -103,9 +103,11 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 05bf0b85068514c4ba85a41b11530672, type: 3}
     - {fileID: 21300000, guid: d66b5e6eb485f8146a68b647405f6344, type: 3}
     - {fileID: 21300000, guid: c843f4370297af34781964c8622798c6, type: 3}
+    - {fileID: 21300000, guid: a69c27b682173944aa107cb7e146c718, type: 3}
+  - sprite:
+    - {fileID: 21300000, guid: d1baec8c739e28841bb9c0c5c386ddc8, type: 3}
+  - sprite: []
+  burn: {fileID: 21300000, guid: fd042efc555e38c4ab5fdbb37bd7ea61, type: 3}
   instance: 0
-  fire: {fileID: 8251125279927765769, guid: d8dde00d5f8fc2648ac070fadff8fff0, type: 3}
-  flames:
-  - {fileID: 21300000, guid: 9dde1168314599043b61d03405dc1b32, type: 3}
-  - {fileID: 21300000, guid: d7296ea8c36efd542ab8238e5ab913af, type: 3}
-  - {fileID: 21300000, guid: 1971657cb9883c1498e03ce97a26988f, type: 3}
+  drySpeed: 0.0001
+  fire: {fileID: 1507806111475864305, guid: 36c421f8831ec76488fbb4c64cdf01f5, type: 3}

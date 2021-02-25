@@ -11,10 +11,13 @@ public class Tile : MonoBehaviour
     public bool onFire;
     //int enums = Enum.GetNames(SpriteLookup.getEnum()).Length;
     public SpriteLookup.TerrainTypeSprite[] sprites;
+    public Sprite burn;
     GameObject foliage;
+    GameObject flame;
     SpriteRenderer foliageSpr;
     public bool instance;
-    [SerializeField] ParticleSystem fire;
+    public float drySpeed = 0.001f;
+    [SerializeField] GameObject fire;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,9 +32,21 @@ public class Tile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(onFire)
+        if(onFire && type != SpriteLookup.TerrainType.rocks)
         {
-
+            Tile t = GameObject.Find("TilesManager").GetComponent<TileManager>().getTile(InputManager.vector2 + location);
+            t.hydration -= drySpeed;
+            t.SetFolliageSprite();
+            if (!t.onFire && t.hydration < .75f)
+                t.SetOnFire();
+            hydration -= drySpeed;
+            if (hydration < 0f)
+            {
+                Destroy(foliage);
+                Destroy(flame);
+                onFire = false;
+                GetComponent<SpriteRenderer>().sprite = burn;
+            }
         }
     }
 
@@ -40,11 +55,15 @@ public class Tile : MonoBehaviour
         if (hydration <= 0)
             Destroy(foliage);
         int enumNum = (int)type;
-        foliageSpr.sprite = sprites[enumNum].sprite[(int)(hydration * sprites[enumNum].sprite.Length)];
-        foliageSpr.sortingOrder = 1;
+        if (foliage != null)
+        {
+            foliageSpr.sprite = sprites[enumNum].sprite[(int)(hydration * sprites[enumNum].sprite.Length)];
+            foliageSpr.sortingOrder = 1;
+        }
     }
     public void SetOnFire()
     {
-        Instantiate<ParticleSystem>(fire, gameObject.transform);
+        flame = Instantiate<GameObject>(fire, transform);
+        onFire = true;
     }
 }
